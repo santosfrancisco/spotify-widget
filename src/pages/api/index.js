@@ -1,0 +1,1 @@
+export default ({ res }) => res.status(200).json({ "message": "My first API" })
