@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
-import styled, { keyframes, css } from 'styled-components'
+import React, { useEffect, useRef, useState } from "react";
+import styled, { keyframes, css } from "styled-components";
 
-import { useSpotifyAPI } from '../../hooks/useSpotifyAPI'
+import { useSpotifyAPI } from "../../hooks/useSpotifyAPI";
 
 const marqueeAnimation = keyframes`
   from {
@@ -19,49 +19,52 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const Marquee = styled.span`
-  ${({ scroll }) => scroll && css`
-    animation: ${marqueeAnimation} 15s linear 2s infinite;
-  `}
-`
+  ${({ scroll }) =>
+    scroll &&
+    css`
+      animation: ${marqueeAnimation} 15s linear 2s infinite;
+    `}
+`;
 
 const SpotifyWidget = styled(({ className, cover, music, artist }) => {
-  const [musicWidth, setMusicWidth] = useState(0)
-  const [artistsWidth, setArtistsWidth] = useState(0)
-  const containerRef = useRef()
-  const musicRef = useRef()
-  const artistsRef = useRef()
+  const [musicWidth, setMusicWidth] = useState(0);
+  const [artistsWidth, setArtistsWidth] = useState(0);
+  const containerRef = useRef();
+  const musicRef = useRef();
+  const artistsRef = useRef();
 
-  const maxWidth = containerRef?.current?.offsetWidth - 16
+  const maxWidth = containerRef?.current?.offsetWidth - 16;
 
   useEffect(() => {
-    setMusicWidth(musicRef?.current?.offsetWidth)
-    setArtistsWidth(artistsRef?.current?.offsetWidth)
-  }, [music])
-  
+    setMusicWidth(musicRef?.current?.offsetWidth);
+    setArtistsWidth(artistsRef?.current?.offsetWidth);
+  }, [music]);
+
   return (
-  <div className={className}>
-    <img className="widget__cover" src={cover} />
-    <div ref={containerRef} className="widget__metadata-container">
-      <Marquee
-        ref={musicRef}
-        className="widget__music-name"
-        scroll={musicWidth > maxWidth}
-      >
-        {music}
-      </Marquee>
-      <Marquee
-        ref={artistsRef}
-        className="widget__artist-name"
-        scroll={artistsWidth > maxWidth}
-      >
-        {artist}
-      </Marquee>
+    <div className={className}>
+      <img className="widget__cover" src={cover} />
+      <div ref={containerRef} className="widget__metadata-container">
+        <Marquee
+          ref={musicRef}
+          className="widget__music-name"
+          scroll={musicWidth > maxWidth}
+        >
+          {music}
+        </Marquee>
+        <Marquee
+          ref={artistsRef}
+          className="widget__artist-name"
+          scroll={artistsWidth > maxWidth}
+        >
+          {artist}
+        </Marquee>
+      </div>
     </div>
-  </div>
-)})`
+  );
+})`
   position: relative;
   background: #2b2b2b;
   display: flex;
@@ -69,7 +72,7 @@ const SpotifyWidget = styled(({ className, cover, music, artist }) => {
   height: 100px;
   width: 400px;
 
-  box-shadow: 4px 4px 24px 4px rgba(0,0,0,.3);
+  box-shadow: 4px 4px 24px 4px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
 
   .widget__cover {
@@ -94,7 +97,7 @@ const SpotifyWidget = styled(({ className, cover, music, artist }) => {
     top: 30px;
     font-weight: bold;
     font-size: 20px;
-    color: #FFF;
+    color: #fff;
     margin-bottom: 12px;
     white-space: nowrap;
     padding-left: 8px;
@@ -110,40 +113,36 @@ const SpotifyWidget = styled(({ className, cover, music, artist }) => {
     padding-left: 8px;
     padding-right: 8px;
   }
-`
+`;
 
 const Current = ({ id }) => {
-  const {
-    user,
-    songData,
-    getCurrentPlayingSong
-  } = useSpotifyAPI(id)
+  const { user, songData, getCurrentPlayingSong } = useSpotifyAPI(id);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      getCurrentPlayingSong()
-    }, 6000)
+      getCurrentPlayingSong();
+    }, 6000);
     return () => clearInterval(interval);
   }, [user]);
 
-  if (!songData?.is_playing) return <div>Nothing playing...</div>
+  if (!songData?.is_playing) return <div>Nothing playing...</div>;
   return (
     <Wrapper>
       <SpotifyWidget
         music={songData?.item?.name}
-        artist={songData?.item?.artists?.map(a => a.name).join(', ')}
-        cover={songData?.item?.album?.images[ 0 ]?.url}
+        artist={songData?.item?.artists?.map((a) => a.name).join(", ")}
+        cover={songData?.item?.album?.images[0]?.url}
       />
     </Wrapper>
-  )
-}
+  );
+};
 
-export async function getServerSideProps ({ params }) {
-  const { id } = params
+export async function getServerSideProps({ params }) {
+  const { id } = params;
 
   return {
     props: { id }, // will be passed to the page component as props
-  }
+  };
 }
 
-export default Current
+export default React.memo(Current);
