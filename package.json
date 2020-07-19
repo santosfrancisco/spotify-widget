@@ -16,6 +16,7 @@
     "next-connect": "^0.8.1",
     "nookies": "^2.3.2",
     "react": "16.13.1",
+    "react-awesome-styled-grid": "^3.0.10",
     "react-dom": "16.13.1",
     "react-icons": "^3.10.0",
     "styled-components": "^5.1.1",

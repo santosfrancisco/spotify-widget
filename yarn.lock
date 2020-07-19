@@ -4715,6 +4715,11 @@ randomfill@^1.0.3:
     randombytes "^2.0.5"
     safe-buffer "^5.1.0"
 
+react-awesome-styled-grid@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/react-awesome-styled-grid/-/react-awesome-styled-grid-3.0.10.tgz#b51b7ec7444487d3ce9ddcc9f1b9517bcfbd470d"
+  integrity sha512-YNzFiDCwehC6v5z7eYwUiSm6MhoxqNJcSFSFQMnStDlDpqINmj/WYDxvyY8mG3iHdaSsBLAWn3CjmFc4k2dyNw==
+
 react-dom@16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
