@@ -1,12 +1,12 @@
-<div style="width:300px;margin:0 auto;">
-  <img src="./public/listen.svg" >
-</div>
+<p align="center">
+  <img src="./public/listen.svg" width="300" >
+</p>
 
 # Spotify Current Song Widget
 
-<div style="text-align:center">
+<p align="center">
   <img src="./public/widget.png" >
-</div>
+</p>
 
 [https://spotify-widget.vercel.app/](https://spotify-widget.vercel.app/)
 
