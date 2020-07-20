@@ -1,31 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div style="width:300px;margin:0 auto;">
+  <img src="./public/listen.svg" >
+</div>
 
-## Getting Started
+# Spotify Current Song Widget
 
-First, run the development server:
+<div style="text-align:center">
+  <img src="./public/widget.png" >
+</div>
+
+[https://spotify-widget.vercel.app/](https://spotify-widget.vercel.app/)
+
+A widget that shows what is currently playing on your spotify. It was built to be used with OBS Studio or Streamlabs OBS (or another broadcast application that accepts url sources). This way, whoever is watching your live, knows what music is playing.
+
+## Development
+
+### Requisites
+
+- NodeJS
+- An spotify app
+- mongodb database
+
+First, you should have a spotify app. You can create one [here](https://developer.spotify.com/dashboard/).
+
+Second, you should have a mongodb database. I'm using [mlab](https://mlab.com)
+
+After this, fill all enviroment variables in the `.env`
+
+```
+  DB_CONNECTION_STRING=your-mongodb-connection-string-with-user-and-pass
+  ClientID=your-spotify-ClientID
+  ClientSecret=your-spotify-ClientSecret
+  BASE_URL=http://your-base-url/
+```
+
+Then, run the command below in your terminal
 
 ```bash
-npm run dev
-# or
-yarn dev
+  yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## TODO
 
-## Learn More
+- Internationalization
+- Tests
 
-To learn more about Next.js, take a look at the following resources:
+## Contributions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
+PR's are welcome!
