@@ -51,7 +51,7 @@ const Home = () => {
       <Row>
         <Col>
           <p>
-            Um widget que mostra a que está tocando atualmente no seu spotify.
+            Um widget que mostra o que está tocando atualmente no seu spotify.
             Foi construído para ser utilizado com o OBS Studio ou Streamlabs OBS
             (ou outro aplicativo de broadcast que aceite fontes de url). Desta
             forma, quem está assistindo sua live, sabe que música está tocando.
@@ -106,7 +106,7 @@ const Home = () => {
               <H3>OBS studio/Streamlabs OBS</H3>
               <p>
                 Basta adicionar uma fonte do tipo "browser" com sua url.
-                Recomendo o tamanho de 450px por 150px. Depois basta
+                Recomendo o tamanho de 450px por 150px. Depois, basta
                 redimensionar e posicionar onde quiser.
               </p>
             </Col>
