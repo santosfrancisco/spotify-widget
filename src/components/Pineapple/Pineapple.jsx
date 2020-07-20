@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Pineapple = styled(({ className, type, ...props }) => {
   return <img className={className} src={`/${type}.svg`} {...props} />;
 })`
-  margin: 24px;
+  margin: 24px 0;
 `;
 
 Pineapple.displayName = "Pineapple";

@@ -28,14 +28,45 @@ const Home = () => {
           <Pineapple type="listen" width={200} />
           <H1>Spotify widget for OBS</H1>
         </Col>
+
+        {!spotifyUser && (
+          <Col align="center" xs={4}>
+            <div style={{ padding: "24px 0" }}>
+              <Button onClick={goToSpotifyLogin}>
+                <FaSpotify style={{ marginRight: 8 }} />
+                <span>Login with spotify</span>
+              </Button>
+            </div>
+          </Col>
+        )}
       </Row>
       <Row>
-        <Col align="center" xs={1} sm={1}>
-          <Pineapple type="laptop" width={50} />
+        <Col align="flex-start" xs={0.5}>
+          <Pineapple type="idea" width={48} />
         </Col>
-        <Col justify="center" xs={3} sm={7}>
+        <Col justify="center">
+          <H2>O que é?</H2>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <p>
+            Um widget que mostra a que está tocando atualmente no seu spotify.
+            Foi construído para ser utilizado com o OBS Studio ou Streamlabs OBS
+            (ou outro aplicativo de broadcast que aceite fontes de url). Desta
+            forma, quem está assistindo sua live, sabe que música está tocando.
+          </p>
+        </Col>
+      </Row>
+      <Row>
+        <Col align="flex-start" xs={0.5}>
+          <Pineapple type="cool" width={48} />
+        </Col>
+        <Col justify="center">
           <H2>Exemplo de widget</H2>
         </Col>
+      </Row>
+      <Row>
         <Col align="center" xs={4}>
           <Link href={`/current/${spotifyUser}`}>
             <a>
@@ -45,51 +76,43 @@ const Home = () => {
         </Col>
       </Row>
 
-      <Row>
-        {!spotifyUser && (
-          <Col align="center" xs={4}>
-            <Button onClick={goToSpotifyLogin}>
-              <FaSpotify style={{ marginRight: 8 }} />
-              <span>Login with spotify</span>
-            </Button>
-          </Col>
-        )}
-
-        {spotifyUser && (
-          <Col xs={4}>
-            <Row>
-              <Col align="center" xs={1} sm={1}>
-                <Pineapple type="laptop" width={50} />
-              </Col>
-              <Col justify="center" xs={3} sm={7}>
-                <H2>Seu link</H2>
-              </Col>
-              <Col>
-                <Link href={`/current/${spotifyUser}`}>
-                  <a>{`${process.env.BASE_URL}/current/${spotifyUser}`}</a>
-                </Link>
-              </Col>
-            </Row>
-            <Row>
-              <Col align="center" xs={1} sm={1}>
-                <Pineapple type="student" width={50} />
-              </Col>
-              <Col justify="center" xs={3} sm={7}>
-                <H2>Instruções</H2>
-              </Col>
-              <Col>
-                <H3>OBS studio</H3>
-                <p>
-                  Para utilizar no OBS studio, basta adicionar uma source do
-                  tipo "browser" com sua url. Com tamanho recomendado de 450x150
-                </p>
-                <H3>Streamlabs OBS</H3>
-                <p>WIP...</p>
-              </Col>
-            </Row>
-          </Col>
-        )}
-      </Row>
+      {spotifyUser && (
+        <>
+          <Row>
+            <Col align="flex-start" xs={0.5}>
+              <Pineapple type="laptop" width={48} />
+            </Col>
+            <Col justify="center">
+              <H2>Seu link</H2>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Link href={`/current/${spotifyUser}`}>
+                <a>{`${process.env.BASE_URL}/current/${spotifyUser}`}</a>
+              </Link>
+            </Col>
+          </Row>
+          <Row>
+            <Col align="flex-start" xs={0.5}>
+              <Pineapple type="student" width={48} />
+            </Col>
+            <Col justify="center">
+              <H2>Instruções</H2>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <H3>OBS studio/Streamlabs OBS</H3>
+              <p>
+                Basta adicionar uma fonte do tipo "browser" com sua url.
+                Recomendo o tamanho de 450px por 150px. Depois basta
+                redimensionar e posicionar onde quiser.
+              </p>
+            </Col>
+          </Row>
+        </>
+      )}
       <Footer />
     </Container>
   );
