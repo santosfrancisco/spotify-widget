@@ -9,8 +9,10 @@ import { H1, H2, H3 } from "../components/Headings";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
 import Pineapple from "../components/Pineapple";
+import { useIntl } from "react-intl";
 
 const Home = () => {
+  const intl = useIntl();
   const [spotifyUser] = useLocalStorage("spotify_user");
 
   const goToSpotifyLogin = () => {
@@ -26,7 +28,7 @@ const Home = () => {
       <Row justify="center">
         <Col align="center">
           <Pineapple type="listen" width={200} />
-          <H1>Spotify widget for OBS</H1>
+          <H1>{intl.formatMessage({ id: "home.title" })}</H1>
         </Col>
 
         {!spotifyUser && (
@@ -34,7 +36,7 @@ const Home = () => {
             <div style={{ padding: "24px 0" }}>
               <Button onClick={goToSpotifyLogin}>
                 <FaSpotify style={{ marginRight: 8 }} />
-                <span>Login with spotify</span>
+                <span>{intl.formatMessage({ id: "login_button.text" })}</span>
               </Button>
             </div>
           </Col>
@@ -45,17 +47,12 @@ const Home = () => {
           <Pineapple type="idea" width={48} />
         </Col>
         <Col justify="center">
-          <H2>O que é?</H2>
+          <H2>{intl.formatMessage({ id: "what_is.title" })}</H2>
         </Col>
       </Row>
       <Row>
         <Col>
-          <p>
-            Um widget que mostra o que está tocando atualmente no seu spotify.
-            Foi construído para ser utilizado com o OBS Studio ou Streamlabs OBS
-            (ou outro aplicativo de broadcast que aceite fontes de url). Desta
-            forma, quem está assistindo sua live, sabe que música está tocando.
-          </p>
+          <p>{intl.formatMessage({ id: "what_is.text" })}</p>
         </Col>
       </Row>
       <Row>
@@ -63,7 +60,7 @@ const Home = () => {
           <Pineapple type="cool" width={48} />
         </Col>
         <Col justify="center">
-          <H2>Exemplo de widget</H2>
+          <H2>{intl.formatMessage({ id: "widget.title" })}</H2>
         </Col>
       </Row>
       <Row>
@@ -83,7 +80,7 @@ const Home = () => {
               <Pineapple type="laptop" width={48} />
             </Col>
             <Col justify="center">
-              <H2>Seu link</H2>
+              <H2>{intl.formatMessage({ id: "link.title" })}</H2>
             </Col>
           </Row>
           <Row>
@@ -98,17 +95,13 @@ const Home = () => {
               <Pineapple type="student" width={48} />
             </Col>
             <Col justify="center">
-              <H2>Instruções</H2>
+              <H2>{intl.formatMessage({ id: "instructions.title" })}</H2>
             </Col>
           </Row>
           <Row>
             <Col>
-              <H3>OBS studio/Streamlabs OBS</H3>
-              <p>
-                Basta adicionar uma fonte do tipo "browser" com sua url.
-                Recomendo o tamanho de 450px por 150px. Depois, basta
-                redimensionar e posicionar onde quiser.
-              </p>
+              <H3>{intl.formatMessage({ id: "instructions.subtitle" })}</H3>
+              <p>{intl.formatMessage({ id: "instructions.text" })}</p>
             </Col>
           </Row>
         </>

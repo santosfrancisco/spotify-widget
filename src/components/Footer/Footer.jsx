@@ -1,31 +1,43 @@
 import React from "react";
 import styled from "styled-components";
+import { FormattedMessage } from "react-intl";
 import Pineapple from "../Pineapple";
 
-const Footer = ({ className }) => {
-  return (
-    <footer className={className}>
-      <div className="with-love">
-        feito com
-        <Pineapple className="pineapple-icon" type="pineapple" width={32} />
-        por
-        <a href="https://github.com/santosfrancisco/" title="Github">
-          Francisco
-        </a>
-      </div>
-      <div className="freepik-credits">
-        Icons by
-        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-          Freepik
-        </a>
-        from
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          flaticon
-        </a>
-      </div>
-    </footer>
-  );
-};
+const Footer = ({ className }) => (
+  <footer className={className}>
+    <div className="with-love">
+      <FormattedMessage id="built_with" />
+      <Pineapple className="pineapple-icon" type="pineapple" width={32} />
+      <FormattedMessage
+        id="by_francisco"
+        values={{
+          github: (
+            <a href="https://github.com/santosfrancisco/" title="Github">
+              Francisco
+            </a>
+          ),
+        }}
+      />
+    </div>
+    <div className="freepik-credits">
+      <FormattedMessage
+        id="icons_credits"
+        values={{
+          freepik: (
+            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+              Freepik
+            </a>
+          ),
+          flaticon: (
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              flaticon
+            </a>
+          ),
+        }}
+      />
+    </div>
+  </footer>
+);
 
 Footer.displayName = "Footer";
 
