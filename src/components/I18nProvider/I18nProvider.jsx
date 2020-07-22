@@ -11,7 +11,12 @@ const Layout = ({ children }) => {
     setSelectedLocale(locale);
   }, [locale]);
   return (
-    <IntlProvider locale={locale} key={locale} messages={messages[locale]}>
+    <IntlProvider
+      locale={locale}
+      key={locale}
+      messages={messages[locale]}
+      onError={() => {}}
+    >
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
           style={{ cursor: "pointer", marginRight: 16 }}

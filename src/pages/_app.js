@@ -5,8 +5,6 @@ import Head from "next/head";
 import ResetCSS from "../styles/resetcss";
 import GlobalStyle from "../styles/global-style";
 
-import Layout from "../components/Layout";
-
 const awesomegrid = {
   container: {
     xs: "full", // 'full' = max-width: 100%
@@ -27,7 +25,7 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Layout>
+      <>
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
@@ -40,7 +38,7 @@ export default class MyApp extends App {
           <GlobalStyle />
           <Component {...pageProps} />
         </ThemeProvider>
-      </Layout>
+      </>
     );
   }
 }
