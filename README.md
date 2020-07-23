@@ -22,7 +22,7 @@ A widget that shows what is currently playing on your spotify. It was built to b
 
 First, you should have a spotify app. You can create one [here](https://developer.spotify.com/dashboard/).
 
-Second, you should have a mongodb database. I'm using [mlab](https://mlab.com)
+Second, you should have a mongodb database. I'm recommend you use [MongoDB Atlas](https://cloud.mongodb.com/).
 
 After this, fill all enviroment variables in the `.env`
 
