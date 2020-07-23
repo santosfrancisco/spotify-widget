@@ -20,5 +20,9 @@
     "react-icons": "^3.10.0",
     "react-intl": "^5.3.2",
     "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^10.4.7",
+    "jest": "^26.1.0"
   }
 }
