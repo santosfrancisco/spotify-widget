@@ -115,6 +115,14 @@ const SpotifyWidget = styled(({ className, cover, music, artist }) => {
   }
 `;
 
+const NothingPlaying = () => (
+  <SpotifyWidget
+    music="Nada tocando agora"
+    artist="Tente dar play no seu spotify"
+    cover="/disc.jpg"
+  />
+);
+
 const Current = ({ id }) => {
   const { user, songData, getCurrentPlayingSong } = useSpotifyAPI(id);
 
@@ -124,15 +132,17 @@ const Current = ({ id }) => {
     }, 6000);
     return () => clearInterval(interval);
   }, [user]);
-
-  if (!songData?.is_playing) return <div>Nothing playing...</div>;
   return (
     <Wrapper>
-      <SpotifyWidget
-        music={songData?.item?.name}
-        artist={songData?.item?.artists?.map((a) => a.name).join(", ")}
-        cover={songData?.item?.album?.images[0]?.url}
-      />
+      {songData?.is_playing ? (
+        <SpotifyWidget
+          music={songData?.item?.name}
+          artist={songData?.item?.artists?.map((a) => a.name).join(", ")}
+          cover={songData?.item?.album?.images[0]?.url}
+        />
+      ) : (
+        <NothingPlaying />
+      )}
     </Wrapper>
   );
 };
