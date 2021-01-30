@@ -116,11 +116,26 @@ const Home = () => {
             <Row>
               <Col>
                 <H3>
-                  <FormattedMessage id="instructions.subtitle" />
+                  <FormattedMessage id="instructions.widget_title" />
                 </H3>
                 <p>
-                  <FormattedMessage id="instructions.text" />
+                  <FormattedMessage id="instructions.widget_text" />
                 </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <H3>
+                  <FormattedMessage id="instructions.command_title" />
+                </H3>
+                <p>
+                  <FormattedMessage id="instructions.command_text" />
+                </p>
+                <div style={{ textAlign: 'center', marginTop: 32 }}>
+                  <Link href={`/api/now/${spotifyUser}`}>
+                    <a>{`${process.env.BASE_URL}/api/now/${spotifyUser}`}</a>
+                  </Link>
+                </div>
               </Col>
             </Row>
           </>
