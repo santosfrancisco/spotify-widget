@@ -15,24 +15,24 @@ export default async function handler(req, res) {
 
   const getCurrentSong = async (user) => {
     const data = await spotifyApi.getSong(user.access_token)
-      if (data?.data?.error) {
-        if(data?.data?.error?.message === "The access token expired" ) {
-          const auth = await spotifyApi.refreshToken(user.refresh_token)
-      
-          await User.findOneAndUpdate({user: id}, {...auth})
-      
-          return getCurrentSong(auth.access_token)
-        }
+    if (data?.data?.error) {
+      if(data?.data?.error?.message === "The access token expired" ) {
+        const auth = await spotifyApi.refreshToken(user.refresh_token)
+    
+        await User.findOneAndUpdate({user: id}, {...auth})
+    
+        return getCurrentSong(auth.access_token)
       }
-      
-      const song = data?.item?.name
-      const artists = data?.item?.artists?.map(a => a.name).join(', ')
+    }
+    
+    const song = data?.item?.name
+    const artists = data?.item?.artists?.map(a => a.name).join(', ')
 
-      if(data.hasOwnProperty('is_playing')) return 'Nothing is playing now.'
+    if(!data.hasOwnProperty('is_playing')) return 'Nothing is playing now.'
 
-      if(song && artists) return `${song} - ${artists}`
-      
-      return `Error. Please, try again.`
+    if(song && artists) return `${song} - ${artists}`
+    
+    return `Error. Please, try again.`
   }
 
   switch (method) {

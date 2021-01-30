@@ -8,9 +8,12 @@ export default {
     "widget.title": "Exemplo de widget",
     "link.title": "Seu link",
     "instructions.title": "Instruções",
-    "instructions.subtitle": "OBS Studio/Streamlabs",
-    "instructions.text":
+    "instructions.widget_title": "OBS Studio/Streamlabs",
+    "instructions.widget_text":
       'Basta adicionar uma fonte do tipo "browser" com sua url. Recomendo o tamanho de 450px por 150px. Depois, basta redimensionar e posicionar onde quiser.',
+    "instructions.command_title": "Comando para bot ou GET direto na api",
+    "instructions.command_text":
+      'Caso queira criar, por exemplo, um comando "!song" usando um bot da Twitch, basta utilizar a url de GET da api abaixo. A resposta será um texto com a música atual.',
     built_with: "feito com",
     by_francisco: "por {github}",
     icons_credits: "Ícones por {freepik} no {flaticon}",
@@ -25,9 +28,13 @@ export default {
     "link.title": "Your link",
     "instructions.title": "Your link",
     "instructions.title": "Instructions",
-    "instructions.subtitle": "OBS Studio/Streamlabs",
-    "instructions.text":
+    "instructions.widget_title": "OBS Studio/Streamlabs",
+    "instructions.widget_text":
       'Just add a "browser" font with your url. I recommend the size of 450px by 150px. Then just resize and position it wherever you want.',
+    "instructions.command_title": "Command for bot or GET direct in the api",
+    "instructions.command_text":
+      'If you want to create, for example, a "!song" command using a Twitch bot, just use the GET url from the api below. The answer will be a text with the current song.',
+    built_with: "feito com",
     built_with: "built with",
     by_francisco: "by {github}",
     icons_credits: "Icons by {freepik} from {flaticon}",
