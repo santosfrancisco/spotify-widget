@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         if(user) {
           song = await getCurrentSong(user)
         }
-        res.status(200).send(song)
+        res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'}).end(song)
       } catch (error) {
         res.status(400).send('Error. Try again.')
       }
