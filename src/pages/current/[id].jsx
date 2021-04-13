@@ -115,15 +115,15 @@ const SpotifyWidget = styled(({ className, cover, music, artist }) => {
   }
 `;
 
-const NothingPlaying = () => (
+const NothingPlaying = ({ nothingPlaying, tryToPlay }) => (
   <SpotifyWidget
-    music="Nada tocando agora"
-    artist="Tente dar play no seu spotify"
+    music={nothingPlaying || "Nothing playing now"}
+    artist={tryToPlay || "Try to play on spotify"}
     cover="/disc.jpg"
   />
 );
 
-const Current = ({ id }) => {
+const Current = ({ id, nothing_playing_msg, try_to_play_msg }) => {
   const { user, songData, getCurrentPlayingSong } = useSpotifyAPI(id);
 
   useEffect(() => {
@@ -141,17 +141,19 @@ const Current = ({ id }) => {
           cover={songData?.item?.album?.images[0]?.url}
         />
       ) : (
-        <NothingPlaying />
+        <NothingPlaying nothingPlaying={nothing_playing_msg} tryToPlay={try_to_play_msg} />
       )}
     </Wrapper>
   );
 };
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params, query }) {
   const { id } = params;
-
+  
+  const { nothing_playing_msg = '', try_to_play_msg = ''  } = query;
+  
   return {
-    props: { id }, // will be passed to the page component as props
+    props: { id, nothing_playing_msg, try_to_play_msg }, // will be passed to the page component as props
   };
 }
 
