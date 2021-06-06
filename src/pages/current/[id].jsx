@@ -4,11 +4,19 @@ import styled, { keyframes, css } from "styled-components";
 import { useSpotifyAPI } from "../../hooks/useSpotifyAPI";
 
 const marqueeAnimation = keyframes`
-  from {
-    transform: translateX(0);
+  0% {
+    opacity: 0;
   }
-  to {
+  5% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
     transform: translateX(-100%);
+    opacity: 0.1;
   }
 `;
 
