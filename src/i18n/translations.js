@@ -14,6 +14,8 @@ export default {
     "instructions.command_title": "Comando para bot ou GET direto na api",
     "instructions.command_text":
       'Caso queira criar, por exemplo, um comando "!song" usando um bot da Twitch, basta utilizar a url de GET da api abaixo. A resposta será um texto com a música atual.',
+    "issues.text": "Tem problemas?",
+    "relogin_button.text" : "Reconectar com ou Spotify",
     built_with: "feito com",
     by_francisco: "por {github}",
     icons_credits: "Ícones por {freepik} no {flaticon}",
@@ -34,6 +36,8 @@ export default {
     "instructions.command_title": "Command for bot or GET direct in the api",
     "instructions.command_text":
       'If you want to create, for example, a "!song" command using a Twitch bot, just use the GET url from the api below. The answer will be a text with the current song.',
+    "issues.text": "Having issues?",
+    "relogin_button.text": "Reconnect with Spotify",
     built_with: "feito com",
     built_with: "built with",
     by_francisco: "by {github}",

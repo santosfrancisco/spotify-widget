@@ -131,13 +131,35 @@ const Home = () => {
                 <p>
                   <FormattedMessage id="instructions.command_text" />
                 </p>
-                <div style={{ textAlign: 'center', marginTop: 32 }}>
+                <div style={{ textAlign: "center", marginTop: 32 }}>
                   <Link href={`/api/now/${spotifyUser}`}>
                     <a>{`${process.env.BASE_URL}/api/now/${spotifyUser}`}</a>
                   </Link>
                 </div>
               </Col>
             </Row>
+            {spotifyUser && (
+              <Row>
+                <Col align="flex-start" xs={0.5}>
+                  <Pineapple type="designer" width={48} />
+                </Col>
+                <Col justify="center">
+                  <H2>
+                    <FormattedMessage id="issues.text" />
+                  </H2>
+                </Col>
+                <Col align="center" xs={4}>
+                  <div style={{ padding: "24px 0" }}>
+                    <Button onClick={goToSpotifyLogin}>
+                      <FaSpotify style={{ marginRight: 8 }} />
+                      <span>
+                        <FormattedMessage id="relogin_button.text" />
+                      </span>
+                    </Button>
+                  </div>
+                </Col>
+              </Row>
+            )}
           </>
         )}
         <Footer />
